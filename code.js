@@ -40,12 +40,12 @@ function playRound(humanChoice, computerChoice){
     console.log(`Draw! You and the Computer choose ${humanChoice}`)
   }
   else{
-    console.log(`You lose! ${computerUp} beats ${humanChoice}!`);
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
     return ++computerScore
   }
 }
 
-function playGame(){
+/*function playGame(){
   let round = 6;
   
   for(let i = 1 ; i < round ; i++){
@@ -67,4 +67,20 @@ function playGame(){
   }
 }
 
-playGame()
+playGame()*/
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+rock.addEventListener("click", () => {
+  playRound("rock", getComputerChoice());
+})
+
+paper.addEventListener("click", () => {
+  playRound("paper", getComputerChoice());
+})
+
+scissors.addEventListener("click", () => {
+  playRound("scissors", getComputerChoice());
+})
