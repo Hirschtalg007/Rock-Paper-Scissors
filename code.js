@@ -23,24 +23,25 @@ function getHumanChoice(){
 }
 
 function playRound(humanChoice, computerChoice){
-  let humanlow = humanChoice.toLowerCase();
-  if(humanlow == "rock" && computerChoice == "scissors"){
-    console.log("You win! Rock beats Scissors");
+  let humanCap = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+  let computerCap = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+  if(humanChoice == "rock" && computerChoice == "scissors"){
+    result.textContent = "You win! Rock beats Scissors";
     return ++humanScore
   }
-  else if (humanlow == "paper" && computerChoice == "rock"){
-    console.log("You win! Paper beats Rock");
+  else if (humanChoice == "paper" && computerChoice == "rock"){
+    result.textContent = "You win! Paper beats Rock";
     return ++humanScore
   }
-  else if (humanlow == "scissors" && computerChoice == "paper"){
-    console.log("You win! Scissors beats Paper");
+  else if (humanChoice == "scissors" && computerChoice == "paper"){
+    result.textContent = "You win! Scissors beats Paper";
     return ++humanScore
   }
-  else if (humanlow == computerChoice){
-    console.log(`Draw! You and the Computer choose ${humanChoice}`)
+  else if (humanChoice == computerChoice){
+    result.textContent = `Draw! You and the Computer choose ${humanCap}`;
   }
   else{
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+    result.textContent = `You lose! ${computerCap} beats ${humanCap}!`
     return ++computerScore
   }
 }
@@ -72,6 +73,7 @@ playGame()*/
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const result = document.querySelector("#result");
 
 rock.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
